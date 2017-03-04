@@ -5,9 +5,10 @@ language: python
 python:
   - 2.7
 
-os:
-  - linux
-  - osx
+matrix:
+  include:
+    - os: osx
+      language: generic
 
 addons:
   apt:
