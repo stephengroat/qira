@@ -17,13 +17,6 @@ if [[ "$unamestr" == 'Linux' ]]; then
   # we need pip to install python stuff
   # build for building qiradb and stuff for flask like gevent
   if [ $(which apt-get) ]; then
-    echo "running apt-get update"
-    sudo apt-get update -qq
-    echo "installing apt packages"
-    sudo apt-get -qq -y install build-essential debootstrap debian-archive-keyring libjpeg-dev zlib1g-dev unzip wget graphviz curl
-    echo "install python packages"
-    sudo apt-get -qq -y install python-dev python-pip python-virtualenv
-
     # install capstone
     if [ "$arch" == 'i686' ]; then
         curl -o /tmp/libcapstone3.deb http://www.capstone-engine.org/download/3.0.4/ubuntu-14.04/libcapstone3_3.0.4-0.1ubuntu1_i386.deb
