@@ -53,9 +53,6 @@ if [[ "$unamestr" == 'Linux' ]]; then
 elif [[ "$unamestr" == 'Darwin' ]]; then
   if [ $(which brew) ]; then
     echo "Installing OS X dependencies"
-    brew update
-    brew install python capstone graphviz
-    pip install virtualenv
     cd tracers
     ./pin_build.sh
     cd ../
