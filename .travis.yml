@@ -7,10 +7,9 @@ python:
 
 matrix:
   include:
-    - os: linux
-      env: CXX=g++-4.8 CC=gcc-4.8
     - os: osx
       language: generic
+      env: 
 
 addons:
   apt:
@@ -37,6 +36,9 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install capstone graphviz; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then pip install virtualenv; fi
+
+env:
+  - CXX=g++-4.8 CC=gcc-4.8
 
 install:
   - ./install.sh
