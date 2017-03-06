@@ -37,12 +37,19 @@ fi
 # use phantomjs2.0 for non-draft WebSockets protol
 # unforunately this doesn't ship with Ubuntu by default
 
-sudo apt-get install $LIBICU
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+  sudo apt-get install $LIBICU
 
-wget https://s3.amazonaws.com/travis-phantomjs/phantomjs-2.0.0-ubuntu-$VER.tar.bz2
-tar xf ./phantomjs-2.0.0-ubuntu-$VER.tar.bz2
-chmod +x ./phantomjs
-./phantomjs qira_tests/load_page.js
+  wget https://s3.amazonaws.com/travis-phantomjs/phantomjs-2.0.0-ubuntu-$VER.tar.bz2
+  tar xf ./phantomjs-2.0.0-ubuntu-$VER.tar.bz2
+  chmod +x ./phantomjs
+  ./phantomjs qira_tests/load_page.js
+elif [[ "$unamestr" == 'Darwin' ]]; then
+  brew install icu4c phantomjs
+  phantomjs qira_tests/load_page.js
+else
+  echo Error
+fi
 
 kill $QIRA_PID
-
