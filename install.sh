@@ -13,11 +13,7 @@ arch=$(uname -p)
 if [[ "$unamestr" == 'Linux' ]]; then
   # we need pip to install python stuff
   # build for building qiradb and stuff for flask like gevent
-  if [ $(which apt-get) ]; then
-    git clone https://github.com/aquynh/capstone.git -b 3.0.4
-    cd capstone && ./make.sh && export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:`pwd` && cd ..
-
-  elif [ $(which pacman) ]; then
+  if [ $(which pacman) ]; then
     echo "installing pip"
     sudo pacman -S --needed --noconfirm base-devel python2-pip python2-virtualenv
     PIP="pip2"
@@ -60,7 +56,7 @@ source venv/bin/activate
 $PIP install --upgrade -r requirements.txt
 
 echo "making symlink"
-sudo ln -sf $(pwd)/qira /usr/local/bin/qira
+# sudo ln -sf $(pwd)/qira /usr/local/bin/qira
 
 echo "***************************************"
 echo "  Thanks for installing QIRA"
