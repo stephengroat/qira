@@ -7,12 +7,7 @@ QEMU_SHA256="028752c33bb786abbfe496ba57315dc5a7d0a33b5a7a767f6d7a29020c525d2c"
 
 python="python"
 # if you don't have ubuntu you are on your own here
-if [ $(which apt-get) ]; then
-  echo "fetching qemu build-deps, enter your password"
-  sudo apt-get update -qq
-  sudo apt-get --no-install-recommends -qq -y build-dep qemu
-  sudo apt-get install -qq -y wget flex bison libtool automake autoconf autotools-dev pkg-config libglib2.0-dev
-elif [ $(which pacman) ]; then
+if [ $(which pacman) ]; then
   python="python2"
   echo "WARNING: you are using pacman, you are awesome but are going to need to fetch the build deps of QEMU on your own"
 else
