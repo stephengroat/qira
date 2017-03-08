@@ -8,7 +8,7 @@ matrix:
       env:
       before_install:
       - brew upgrade
-      - brew install capstone graphviz
+      - brew install capstone graphviz ocaml ocamlbuild camlp5 opam
       - pip install --upgrade pip
       - pip install virtualenv
 addons:
