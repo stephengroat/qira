@@ -58,7 +58,6 @@ addons:
     - python-pip
     - python-virtualenv
     - qemu
-    - build-dep
     - bison
     - flex
     - libtool
