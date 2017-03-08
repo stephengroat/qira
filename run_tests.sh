@@ -13,7 +13,7 @@ source venv/bin/activate
 nosetests
 
 # integration test
-qira qira_tests/bin/loop &
+./qira qira_tests/bin/loop &
 QIRA_PID=$!
 echo "qira pid is $QIRA_PID"
 sleep 2
