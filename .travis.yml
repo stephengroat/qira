@@ -1,10 +1,6 @@
-sudo: true
-
 language: python
-
 python:
   - 2.7
-
 matrix:
   include:
     - os: osx
@@ -15,15 +11,15 @@ matrix:
       - brew install capstone graphviz
       - pip install --upgrade pip
       - pip install virtualenv
-
 addons:
   apt:
     sources:
     - ubuntu-toolchain-r-test
+    - avsm
     packages:
     - gcc-4.8
     - g++-4.8
-    - clang
+    - clang-3.4
     - build-essential
     - debootstrap
     - debian-archive-keyring
@@ -33,16 +29,38 @@ addons:
     - wget
     - graphviz
     - curl
+    - libcurl4-gnutls-dev
+    - libgmp-dev
+    - libssl-dev
+    - libzip-dev
+    - llvm
+    - llvm-3.4-dev
+    - m4
+    - ocaml
+    - ocaml-base
+    - ocaml-base-nox
+    - ocaml-compiler-libs
+    - ocaml-native-compilers
+    - ocaml-nox
+    - camlp4-extra
+    - time
+    - aspcud
+    - dejagnu
+    - jq
+    - opam
+    - libicu48
+    - libicu-dev
+    - lib32icu48
+    - lib32icu-dev
+	  - phantomjs
+    - software-properties-common
     - python-dev
     - python-pip
     - python-virtualenv
-
 env:
   - CXX=g++-4.8 CC=gcc-4.8
-
 install:
   - ./install.sh
-
 script:
   - ./run_tests.sh
   - ./run_tests_static.sh
