@@ -57,6 +57,16 @@ addons:
     - python-dev
     - python-pip
     - python-virtualenv
+    - qemu
+    - build-dep
+    - bison
+    - flex
+    - libtool
+    - automake
+    - autoconf
+    - autotools-dev
+    - pkg-config
+    - libglib2.0-dev
 env:
   - CXX=g++-4.8 CC=gcc-4.8
 install:
