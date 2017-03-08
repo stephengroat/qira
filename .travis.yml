@@ -8,7 +8,7 @@ matrix:
       env:
       before_install:
       - brew upgrade
-      - brew install capstone graphviz ocaml ocamlbuild camlp5 opam
+      - brew install capstone graphviz ocaml ocamlbuild camlp5 opam icu4c phantomjs
       - pip install --upgrade pip
       - pip install virtualenv
 addons:
@@ -52,7 +52,7 @@ addons:
     - libicu-dev
     - lib32icu48
     - lib32icu-dev
-	  - phantomjs
+    - phantomjs
     - software-properties-common
     - python-dev
     - python-pip
